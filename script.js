@@ -131,15 +131,20 @@ fetchData();
 async function nyalakanPembersih() {
   const btn = document.getElementById('btnBersih');
   const pesan = document.getElementById('pesanBersih');
+  const badge = document.getElementById('statusBersih');
   
   btn.disabled = true;
   btn.textContent = '⏳ Berjalan...';
   pesan.textContent = 'Pembersih sedang berjalan...';
+  badge.textContent = '🧹 Berjalan...';
+  badge.className = 'badge running';
   
   try {
     await fetch(`${ESP32_IP}/bersih`);
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 15000));
     pesan.textContent = '✅ Pembersih selesai!';
+    badge.textContent = '✅ Selesai';
+    badge.className = 'badge on';
   } catch (err) {
     pesan.textContent = '❌ Gagal konek ke ESP32';
   }
