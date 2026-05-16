@@ -128,5 +128,24 @@ async function fetchData() {
 // Fetch pertama langsung
 fetchData();
 
+async function nyalakanPembersih() {
+  const btn = document.getElementById('btnBersih');
+  const pesan = document.getElementById('pesanBersih');
+  
+  btn.disabled = true;
+  btn.textContent = '⏳ Berjalan...';
+  pesan.textContent = 'Pembersih sedang berjalan...';
+  
+  try {
+    await fetch(`${ESP32_IP}/bersih`);
+    pesan.textContent = '✅ Pembersih selesai!';
+  } catch (err) {
+    pesan.textContent = '❌ Gagal konek ke ESP32';
+  }
+  
+  btn.disabled = false;
+  btn.textContent = '🧹 Jalankan Pembersih';
+}
+
 // Auto refresh tiap 3 detik
 setInterval(fetchData, 3000);
