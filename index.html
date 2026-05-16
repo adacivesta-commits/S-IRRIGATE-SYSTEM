@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>S-IRRIGATE Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="bg-blur"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>⚡ S-IRRIGATE</h1>
+      <p class="subtitle">Solar Panel Smart Monitoring System</p>
+      <div class="status-dot" id="statusDot"></div>
+    </div>
+
+    <!-- Cards Row 1 -->
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-icon">🔋</div>
+        <div class="card-label">Tegangan Panel</div>
+        <div class="card-value" id="tegangan">--</div>
+        <div class="card-unit">Volt</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <div class="card-label">Daya Panel</div>
+        <div class="card-value" id="daya">--</div>
+        <div class="card-unit">Watt</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <div class="card-label">Kelembaban</div>
+        <div class="card-value" id="kelembaban">--</div>
+        <div class="card-unit">%</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">☀️</div>
+        <div class="card-label">Posisi Tracker</div>
+        <div class="card-value" id="posisi">--</div>
+        <div class="card-unit">Derajat</div>
+      </div>
+    </div>
+
+    <!-- Status Row -->
+    <div class="grid-2">
+      <div class="card status-card">
+        <div class="card-icon">🌱</div>
+        <div class="card-label">Pompa Irigasi</div>
+        <div class="badge" id="statusPompa">--</div>
+      </div>
+      <div class="card status-card">
+        <div class="card-icon">🧹</div>
+        <div class="card-label">Pembersih Panel</div>
+        <div class="badge" id="statusBersih">--</div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="card chart-card">
+      <div class="chart-title">📈 Grafik Tegangan & Daya Real-time</div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- Kelembaban Bar -->
+    <div class="card">
+      <div class="chart-title">💧 Level Kelembaban Tanah</div>
+      <div class="soil-bar-wrap">
+        <div class="soil-bar" id="soilBar"></div>
+      </div>
+      <div class="soil-label">
+        <span>Kering</span>
+        <span id="soilPct">--%</span>
+        <span>Basah</span>
+      </div>
+    </div>
+
+    <div class="footer">Last update: <span id="lastUpdate">--</span></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
