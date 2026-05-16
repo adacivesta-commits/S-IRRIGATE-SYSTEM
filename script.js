@@ -138,6 +138,7 @@ async function nyalakanPembersih() {
   
   try {
     await fetch(`${ESP32_IP}/bersih`);
+    await new Promise(resolve => setTimeout(resolve, 10000));
     pesan.textContent = '✅ Pembersih selesai!';
   } catch (err) {
     pesan.textContent = '❌ Gagal konek ke ESP32';
