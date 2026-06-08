@@ -1,5 +1,5 @@
 // Ganti IP ini dengan IP ESP32 kamu nanti
-const ESP32_IP = "http://10.127.174.190";
+const ESP32_IP = "http://10.127.174.190:8080";
 
 // Setup Chart
 const ctx = document.getElementById('myChart').getContext('2d');
