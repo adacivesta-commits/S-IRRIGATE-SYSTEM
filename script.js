@@ -87,8 +87,8 @@ async function fetchData() {
     dot.className = 'status-dot online';
 
     // Update nilai
-    document.getElementById('tegangan').textContent = parseFloat(data.volt).toFixed(1);
-    document.getElementById('daya').textContent = parseFloat(data.watt).toFixed(1);
+    document.getElementById('tegangan').textContent = parseFloat(data.volt).toFixed(2);
+    document.getElementById('daya').textContent = parseFloat(data.watt).toFixed(2);
     document.getElementById('kelembaban').textContent = data.soil;
     document.getElementById('posisi').textContent = data.posTracker;
 
